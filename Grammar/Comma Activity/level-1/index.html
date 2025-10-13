@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comma Placement Game</title>
+  <link rel="stylesheet" href="/Grammar/Comma Activity/style.css" type="text/css" media="all" />
+</head>
+
+<body>
+  <!-- Instruction Modal -->
+  <div id="instruction-modal" class="modal">
+    <div class="modal-content">
+      <h2>Comma Rules</h2>
+      <p><strong>Instructions:</strong></p>
+      <p>Drag commas to the correct positions between words in the sentence.</p>
+      <p>Double-click a comma to remove it, or tap quickly twice on mobile.</p>
+      <p>Click "Check" to verify your answers and "Hint" if you need help.</p>
+      <button id="start-btn" class="modal-btn">Start Game</button>
+    </div>
+  </div>
+
+  <!-- Results Modal -->
+  <div id="results-modal" class="modal">
+    <div class="modal-content">
+      <h2>Great Job!</h2>
+      <p>You've completed all the sentences!</p>
+      <button id="play-again-btn" class="modal-btn">Play Again</button>
+      <a href="/level-2/index.html">
+        <button id="Level-2" class="modal-btn">Level 2</button>
+      </a>
+    </div>
+  </div>
+
+  <!-- Main Game Container (shown after instruction modal) -->
+  <div class="game-container">
+    <div class="container">
+      <h1>Comma Placement Game</h1>
+      <div class="progress">Sentence: <span id="current-sentence">1</span> of <span id="total-sentences">5</span></div>
+      <div class="sentence-container">
+        <div id="sentence" class="sentence"></div>
+      </div>
+      <div class="toolbox">
+        <div id="comma-source" class="comma-source">,</div>
+      </div>
+      <div id="hint" class="hint"></div>
+      <div class="buttons">
+        <button id="check-btn" class="btn">Check</button>
+        <button id="hint-btn" class="btn">Hint</button>
+        <button id="next-btn" class="btn btn-next">Next</button>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="main.js" type="module"></script>
+</body>
+
+</html>

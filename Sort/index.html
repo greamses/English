@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Card Sorting Game</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="logo-container">
+    <img src="logo.png" alt="Game Logo" class="logo">
+  </div>
+
+  <div class="game-container">
+    <!-- Game Title -->
+    <h3 class="game-title"></h3>
+
+    <!-- Cards Section -->
+    <div class="cards-container"></div>
+
+    <!-- Sorting Section -->
+    <div class="sort-container"></div>
+
+    <!-- Buttons Section -->
+    <div class="buttons">
+      <button id="checkOrder">Check</button>
+      <button id="reshuffle">Reshuffle</button>
+      <button id="nextTopic">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793L9.146 3.354a.5.5 0 1 1 .708-.708l4.5 4.5a.5.5 0 0 1 0 .708l-4.5 4.5a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div id="popup-alert" class="popup-alert">
+    <div class="popup-content">
+      <span id="popup-close" class="popup-close">&times;</span>
+      <p id="popup-message"></p>
+      <button id="popup-ok" class="popup-ok">OK</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>

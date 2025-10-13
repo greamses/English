@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Vocabulary Challenge</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>Vocabulary</h1>
+      <p class="subtitle">Expand your vocabulary!</p>
+    </header>
+
+    <div class="game-container">
+      <div class="score-section">
+        <div class="score-display">
+          <span id="score"></span>
+        </div>
+        <div class="progress-display">
+          <span>Word:</span>
+          <span id="progress">1/5</span>
+        </div>
+      </div>
+
+      <div class="word-section">
+        <div class="word-container">
+          <div class="main-word" id="main-word">walk</div>
+        </div>
+        <div class="image-container">
+          <img id="word-image" src="" alt="Image representing the word">
+        </div>
+      </div>
+
+      <div class="input-section">
+        <input type="text" id="synonym-input" placeholder="Enter a synonym...">
+        <button id="check-btn" class="btn primary-btn">Check</button>
+      </div>
+
+      <div class="feedback-section" id="feedback">
+        <!-- Feedback will be displayed here -->
+      </div>
+
+      <div class="button-section">
+        <button id="next-btn" class="btn secondary-btn" disabled>Next Word</button>
+        <div class="toggle-buttons">
+          <button id="toggle-instructions" class="btn toggle-btn">How Scoring Works</button>
+          <button id="toggle-synonyms" class="btn toggle-btn">Show Valid Synonyms</button>
+        </div>
+      </div>
+
+      <div class="hidden-section" id="instructions-section">
+        <h3>How Scoring Works</h3>
+        <ul>
+          <li><span class="badge basic">Basic</span> synonyms > 1 point</li>
+          <li><span class="badge advanced">Advanced</span> synonyms > 20 points</li>
+          <li><span class="badge vivid">Vivid</span> synonyms > 40 points</li>
+        </ul>
+        <div class="game-instructions">
+          <h3>How to Play</h3>
+          <ul>
+            <li>💡 Enter <strong>synonyms</strong> for the displayed word to earn points.</li>
+            <li>📝 Different synonyms are worth different point values:</li>
+            <ul>
+              <li class="basic">Basic synonyms: 10-30 points</li>
+              <li class="advanced">Advanced synonyms: 40-60 points</li>
+              <li class="vivid">Vivid synonyms: 70-90 points</li>
+              <li class="premium">Premium synonym: 100 points (one per word)</li>
+            </ul>
+            <li>🎯 <strong>Score at least 50 points</strong> for each word to unlock the next word.</li>
+            <li>🔍 Finding a single synonym worth 50+ points instantly unlocks the next word.</li>
+            <li>🏆 Discover the <strong>premium synonym</strong> (worth 100 points) to instantly complete the word!</li>
+            <li>📊 Your <strong>word score</strong> is the average of all synonyms you've found for that word.</li>
+            <li>📚 Unlock the synonyms list by completing a word. You can only see synonyms with point values equal to or less than your best found synonym.</li>
+            <li>⚠️ Once you view the synonyms list for a completed word, inputs are locked for that word.</li>
+            <li>🔄 Progress through all words to see your final score and performance evaluation.</li>
+          </ul>
+
+          <h3>Tips for Success</h3>
+          <ul>
+            <li>✨ Use <strong>vivid, descriptive, and uncommon</strong> synonyms to earn higher points.</li>
+            <li>🧠 Think beyond the obvious - premium synonyms are rare and precise.</li>
+            <li>📈 Aim for quality over quantity - a few high-value synonyms will boost your score faster than many basic ones.</li>
+            <li>🔄 You cannot reuse synonyms for the same word.</li>
+            <li>🚫 The exact same word as shown is not accepted as a synonym.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="hidden-section" id="synonyms-section">
+        <h3>Valid Synonyms</h3>
+        <div class="synonyms-list">
+          <!-- Synonyms will be displayed here -->
+        </div>
+      </div>
+    </div>
+
+    <div class="result-container" id="result-container">
+      <h2>Challenge Complete!</h2>
+      <p>Your final score: <span id="final-score">0</span></p>
+      <div class="performance-message" id="performance-message"></div>
+      <button id="restart-btn" class="btn primary-btn">Play Again</button>
+    </div>
+  </div>
+
+  <script src="noun.js" type="module"></script>
+</body>
+
+</html>

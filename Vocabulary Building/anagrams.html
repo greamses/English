@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <style>
+    body {
+      display: grid;
+      place-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      display: grid;
+      place-items: center;
+      gap: 20px;
+    }
+
+    .container div {
+      width: 250px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    input {
+      width: 120px;
+      border: none;
+      outline: none;
+      border-bottom: 1px solid #505050;
+    }
+
+    .display {
+      width: 95%;
+      text-align: center;
+      font-size: 18px;
+      margin-top: 20px;
+    }
+
+    button {
+      width: 120px;
+      border: none;
+      outline: none;
+      font-size: 18px;
+      padding: 8px 0;
+      background: #3197F0;
+      color: white;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<div class="container">
+
+  <h3>Anagram Checker</h3>
+
+
+  <div>
+    <label for="firstInput">First Input</label>
+    <input type="text" id="firstInput" />
+  </div>
+  <div>
+    <label for="secondInput">Second Input</label>
+    <input type="text" id="secondInput" />
+  </div>
+
+  <div class="display">
+  </div>
+  <button class="button">Check</button>
+</div>
+
+<body>
+
+
+  <script>
+    const btn = document.querySelector('.button'),
+      display = document.querySelector('.display'),
+      firstInput = document.querySelector('#firstInput'),
+      secondInput = document.querySelector('#secondInput');
+
+    btn.addEventListener('click', () => {
+      let firstWord = firstInput.value.replace(/\s/g, '').toUpperCase()
+      let secondWord = secondInput.value.replace(/\s/g, '').toUpperCase()
+      let word1 = wordFormatter(firstWord)
+      let word2 = wordFormatter(secondWord)
+      
+      if(word1.length !== word2.length){
+        display.innerText = `${firstWord} and ${secondWord} are not anagrams.`
+      }
+      else if(word1 !== word2){
+        display.innerText = `${firstWord} and ${secondWord} are not anagrams.`
+      }
+      else{
+        display.innerText = `${firstWord} and ${secondWord} are anagrams.`
+      }
+    })
+
+
+    const wordFormatter = (word) => word.toLowerCase().split('').sort().join('')
+  </script>
+</body>
+
+</html>

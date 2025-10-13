@@ -1,0 +1,168 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #E2C219;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+h2 {
+  text-align: center;
+}
+
+p,
+label {
+  font-size: 18px;
+  margin: 10px;
+  text-align: center;
+}
+
+
+.outer-wrap {
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-direction: column;
+}
+
+
+.check-wrap {
+  position: relative;
+  text-align: center;
+  display: grid;
+  padding: 30px 20px;
+  background: #081820;
+  color: white;
+  border-radius: 20px;
+  place-items: center;
+  gap: 10px;
+  border: 2px solid white;
+  box-shadow: 10px 10px #5800A0;
+}
+
+@keyframes flap {
+  0% {
+    transform: rotateX(90deg) scale(0.8);
+    opacity: 0;
+  }
+
+  50% {
+    transform: rotateX(-20deg) scale(1.1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: rotateX(0deg) scale(1);
+    opacity: 1;
+  }
+}
+
+.definition {
+  position: absolute;
+  right: 0;
+  top: -70%;
+  width: 90%;
+  padding: 10px;
+  background: #5800A0;
+  color: white;
+  border-radius: 20px;
+  opacity: 0;
+  transform-origin: bottom;
+
+}
+
+.definition::after {
+  content: '';
+  position: absolute;
+  left: 20px;
+  bottom: -20px;
+  width: 20px;
+  height: 20px;
+  background: #5800A0;
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+.definition.show {
+  animation: flap 0.6s ease-out;
+  opacity: 1;
+}
+
+.definition em {
+  color: #E2C219;
+  font-weight: 700;
+}
+
+
+button {
+  background: #081820;
+  border: none;
+  width: 12rem;
+  font-size: 20px;
+  padding: 12px 8px;
+  color: white;
+  border-radius: 40px;
+}
+
+input {
+  background: none;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid white;
+  margin: 20px;
+  color: white;
+  padding: 5px;
+  font-size: 16px;
+  text-align: center;
+}
+
+#result {
+  font-size: 18px;
+  width: 100%;
+  background: #5800A0;
+  color: white;
+}
+
+#result .red {
+  color: #FF3A71;
+  font-weight: 600;
+}
+
+#result .green {
+  color: #20890C;
+  font-weight: 600;
+}
+
+.custom-alert {
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #5800A0;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  width: 220px;
+  text-align: center;
+  border: 2px solid white;
+  font-size: 18px;
+}
+
+
+.custom-alert button {
+  margin-top: 10px;
+  padding: 5px 15px;
+  border: none;
+  background: #E2C219;
+  color: #000;
+  cursor: pointer;
+  border-radius: 5px;
+}

@@ -1,0 +1,188 @@
+/* Define CSS variables at the root */
+:root {
+  --primary-color: #FFC1E3;
+  /* Light pink */
+  --secondary-color: #FF85B3;
+  /* Deeper pink */
+  --hover-color: #FF9E80;
+  /* Light orange */
+  --accent-color: #FFF3B0;
+  /* Warm yellow */
+  --text-color: #5B5B5B;
+  /* Neutral grey */
+  --header-background: #FF85B3;
+  /* Harmonized header background */
+  --header-text-color: #FFFFFF;
+  /* Header text color */
+  --background-color: #F0F9FF;
+  /* Warm yellow for body background */
+  --dropzone-border: #FFD966;
+  /* Dropzone border color */
+  --button-shadow: rgba(0, 0, 0, 0.2);
+  /* Button shadow */
+  --hover-shadow: rgba(0, 0, 0, 0.3);
+  /* Button hover shadow */
+
+  /* Font variables */
+  --font-family: 'Poppins', sans-serif;
+  --font-size-large: 1.6em;
+  /* Font size for large headings */
+  --font-size-medium: 1.3em;
+  /* Font size for medium text */
+  --font-size-small: 1.2em;
+  /* Font size for smaller text */
+  --font-size-xsmall: 0.8em;
+  /* Font size for extra small text */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding-bottom: 20px;
+}
+
+h1 {
+  background-color: var(--header-background);
+  color: var(--header-text-color);
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: var(--font-size-large);
+  border-bottom: 5px solid var(--secondary-color);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Define keyframes for pop animation */
+@keyframes pop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Apply the pop animation to .sortable-phrases on hover */
+.sortable-phrases {
+  animation: pop 0.3s ease-in-out;
+}
+
+
+.sortable-phrases,
+.drop-zone p {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  border: 2px solid var(--secondary-color);
+  padding: 10px 20px;
+  font-size: var(--font-size-small);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  box-shadow: 0 4px 8px var(--button-shadow);
+  margin: 10px;
+  cursor: pointer;
+  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sortable-phrases:hover {
+  background-color: var(--hover-color);
+  transform: scale(1.05);
+}
+
+.drop-zone {
+  position: relative;
+  border: 2px dashed var(--dropzone-border);
+  padding: 5px;
+  min-height: 150px;
+  min-width: 100%;
+  max-width: 500px;
+  margin: 0 10px;
+  background-color: var(--accent-color);
+  border-radius: 12px;
+  box-shadow: 0 4px 8px var(--button-shadow);
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  transition: background-color 0.3s, border-color 0.3s;
+  font-size: var(--font-size-small);
+}
+
+.drop-zone:hover {
+  background-color: var(--primary-color);
+  border-color: var(--secondary-color);
+}
+
+.drop-zone p {
+  scale: 0.65;
+  margin: 0;
+}
+
+.drop-zone h3 {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.drop-zone img{
+  position: absolute;
+width: 50px;
+height: auto;
+}
+
+#phrases-container {
+  margin: 5px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  padding: 10px;
+}
+
+#phrase-display {
+  color: var(--secondary-color);
+}
+
+button {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  border: 2px solid var(--secondary-color);
+  padding: 10px 20px;
+  font-size: var(--font-size-small);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  box-shadow: 0 4px 8px var(--button-shadow);
+}
+
+button:hover {
+  background-color: var(--secondary-color);
+  box-shadow: 0 6px 12px var(--hover-shadow);
+}
+
+.buttons {
+  display: flex;
+  width: 300px;
+  justify-content: space-between;
+}

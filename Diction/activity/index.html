@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transcriber</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="body-bkg">
+
+  </div>
+    <div class="container">
+        <div class="header">
+            <div class="score">Score: <span id="score">0</span></div>
+        </div>
+        <div class="input-section">
+            <div id="wordDisplay">
+            </div>
+              <button class="speaker-icon" id="playAudioBtn"><i class="fas fa-volume-up"></i></button>
+            <!-- Speaker Icon -->
+            <input type="text" class="transcription-input" id="transcriptionInput" placeholder="Transcribe" inputmode="none">
+            <div class="feedback" id="feedback"></div>
+        </div>
+
+        <div class="keyboard-container">
+            <div class="keyboard-section">
+                <div class="keyboard" id="phoneticsKeyboard"></div>
+            </div>
+        </div>
+        
+        <div class="navigation">
+            <button class="nav-btn" id="prevBtn" style="display: none;"><i class="fas fa-chevron-left"></i> 
+            </button>
+            <button class="nav-btn" id="checkBtn">Check</button>
+            <button class="nav-btn" id="nextBtn">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Audio Element -->
+    <audio id="audioPlayer"></audio>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+</body>
+</html>

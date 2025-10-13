@@ -1,0 +1,247 @@
+/* Import Poppins Font */
+@import url('https://fonts.googleapis.com/css2?family=Chewy&family=Poppins:wght@400;600;700&display=swap');
+
+/* Playful Kids-Friendly CSS Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Ensure the HTML and body elements have no margins */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* Custom Properties for Breakpoints */
+:root {
+  --container-max-width: 1200px;
+  --container-padding: clamp(1rem, 5vw, 2rem);
+  --grid-min-width: clamp(50px, 10vw, 80px);
+  --heading-size: clamp(2rem, 6vw, 3rem);
+  --filter-btn-padding: clamp(8px, 2vw, 12px) clamp(12px, 3vw, 24px);
+  --phoneme-font-size: clamp(1.1rem, 3.5vw, 1.5rem);
+  --example-font-size: clamp(0.85rem, 2.5vw, 1rem);
+  --bubble-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--container-padding);
+  color: #333;
+  line-height: 1.6;
+}
+
+.body-bkg{
+  position: fixed;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: url('/Diction/index.jpg');
+background-position: center;
+background-size: cover;
+z-index: -100;
+}
+
+/* Ensure .heading stays at the top */
+.heading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  text-align: center;
+  width: 100%;
+  padding: 15px 30px;
+  margin: 0; /* Remove any potential margin */
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+}
+
+/* Ensure h1 within heading has no margin */
+.heading h1 {
+  margin: 0;
+  font-family: 'Poppins', sans-serif; 
+  color: #ffffff; 
+  font-size: var(--heading-size);
+}
+
+main{
+  margin-top: 100px;
+}
+
+.filter-container {
+  margin: clamp(1rem, 3vw, 2rem) 0;
+  display: flex;
+  gap: clamp(6px, 1.5vw, 12px);
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: min(800px, 95vw);
+  padding: clamp(15px, 3vw, 25px);
+  background: #FFFFFF73;
+  border-radius: 15px;
+  border: 2px solid #e0e0e0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.filter-btn {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  padding: 10px 15px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 0 #45a049, 0 12px 0 rgba(0, 0, 0, 0.1);
+  margin: 10px 0;
+}
+
+.filter-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 9px 0 #45a049, 0 18px 0 rgba(0, 0, 0, 0.1);
+}
+
+.filter-btn:active {
+  transform: translateY(-3px);
+  box-shadow: 0 9px 0 #45a049, 0 18px 0 rgba(0, 0, 0, 0.1);
+}
+
+.filter-btn:disabled {
+  background: #94a3b8;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.phoneme-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--grid-min-width), 1fr));
+  gap: clamp(5px, 1.5vw, 15px);
+  width: 100%;
+  max-width: min(800px, 95vw);
+  padding: clamp(15px, 3vw, 30px);
+  /* background: #FFFFFF73;
+  border-radius: 15px;
+  border: 2px solid #e0e0e0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+}
+
+.phoneme {
+  padding: clamp(8px, 1.7vw, 12px) clamp(5px, 1.3vw, 8px);
+  border: 2px solid #e0e0e0;
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #E07918;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 0 #9B4F09, 0 12px 0 rgba(0, 0, 0, 0.1);
+  margin: 5px 0;
+}
+
+.phoneme:hover {
+  transform: scale(1.05);
+  border-color: #4CAF50;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.phoneme strong {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-size: var(--phoneme-font-size);
+  margin-bottom: clamp(2px, 1vw, 4px);
+  font-weight: 400;
+}
+
+.phoneme span {
+  font-family: 'Poppins', sans-serif;
+  font-size: var(--example-font-size);
+  color: #FF5722;
+  font-weight: 600;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* Remaining media queries from the original CSS... */
+@media (max-width: 1200px) {
+  .phoneme-container {
+    grid-template-columns: repeat(auto-fit, minmax(calc(var(--grid-min-width) * 0.8), 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .filter-container {
+    justify-content: flex-start;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: clamp(10px, 2vw, 15px);
+  }
+  
+  .filter-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-btn {
+    flex: 0 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --grid-min-width: clamp(60px, 20vw, 70px);
+  }
+
+  .phoneme-container {
+    padding: clamp(10px, 2vw, 15px);
+  }
+
+  .phoneme {
+    padding: clamp(8px, 1.5vw, 12px);
+  }
+}
+
+/* Landscape Mode Optimizations */
+@media (max-height: 500px) and (orientation: landscape) {
+  body {
+    padding: clamp(0.5rem, 2vw, 1rem);
+  }
+
+  h1 {
+    margin-bottom: clamp(1rem, 3vw, 1.5rem);
+  }
+
+  .filter-container {
+    margin: clamp(0.5rem, 2vw, 1rem) 0;
+  }
+
+  .phoneme-container {
+    grid-template-columns: repeat(auto-fit, minmax(calc(var(--grid-min-width) * 0.6), 1fr));
+  }
+}
+
+
+
+.hidden{
+  display: none;
+}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vivid Verb Substitution</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="//fonts.cdnfonts.com/css/segoe-ui-4" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" type="text/css" media="all" />
+</head>
+<body>
+  <div class="header">
+    <h1>Vivid Verbs</h1>
+  </div>
+  
+  <div class="container">
+    <div class="card">
+      <div class="card-header">
+        <h2>Select the most vivid verb</h2>
+        <div class="progress-container">
+          <span class="progress-text">1/10</span>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 10%;"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card-body">
+        <!-- Updated sentence container with inline verb selection -->
+        <div class="sentence-container">
+          <div class="original-sentence">
+            <span class="verb-context">She</span>
+            <span class="verb-placeholder" data-base-verb="walked slowly">
+              <span class="verb-display">walked slowly</span>
+              <div class="verb-options">
+                <div class="verb-option" data-value="strolled">strolled</div>
+                <div class="verb-option" data-value="trudged">trudged</div>
+                <div class="verb-option" data-value="marched">marched</div>
+                <div class="verb-option" data-value="glided">glided</div>
+              </div>
+            </span>
+            <span class="verb-context">down the winding garden path.</span>
+          </div>
+          
+          <div class="button-group">
+            <button class="btn" id="check-answer">
+              <i class="fas fa-check-circle"></i>
+              Check Answer
+            </button>
+            <button class="btn btn-success" id="next-sentence" style="display: none;">
+              <i class="fas fa-arrow-right"></i>
+              Next Sentence
+            </button>
+          </div>
+          
+          <div class="feedback" id="feedback">
+            <div class="feedback-header">
+              <i class="fas fa-info-circle"></i>
+              <span>Why this matters</span>
+            </div>
+            <p class="explanation" id="explanation">
+              "Strolled" suggests a relaxed, leisurely walk that perfectly matches the slow pace described.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="stats">
+      <div class="stat-card">
+        <div class="stat-value" id="correct-count">0</div>
+        <div class="stat-label">Correct</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="streak-count">0</div>
+        <div class="stat-label">Streak</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="completed-count">0/10</div>
+        <div class="stat-label">Completed</div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="modal" id="difficulty-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Select Difficulty</h3>
+        <button class="close-button" id="close-modal">&times;</button>
+      </div>
+      <div class="level-buttons">
+        <div class="level-btn active" data-level="beginner">
+          <h4>Beginner</h4>
+          <p>Simple sentences with common verbs</p>
+        </div>
+        <div class="level-btn" data-level="intermediate">
+          <h4>Intermediate</h4>
+          <p>More complex sentences with varied verbs</p>
+        </div>
+        <div class="level-btn" data-level="advanced">
+          <h4>Advanced</h4>
+          <p>Challenging sentences with nuanced verbs</p>
+        </div>
+      </div>
+      <button class="btn" id="start-practice">
+        <i class="fas fa-play"></i>
+        Start Practice
+      </button>
+    </div>
+  </div>
+  
+  <button class="help-btn" id="help-button">
+    <i class="fas fa-question"></i>
+  </button>
+  
+  <div class="footer">
+    &copy; 2025 Vivid Verb Substitution Tool | Improve Your Writing Skills
+  </div>
+
+  <script src="main.js" type="module"></script>
+</body>
+</html>

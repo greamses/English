@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Comparison: Samsung vs iPhone</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Samsung vs iPhone</h1>
+    <div id="phrase-display"></div>
+    <div id="phrases-container">
+        <div class="drop-zone" id="samsung" onclick="dropPhrase('samsung')">
+          <h3>Samsung</h3>
+          <img src="samsung.jpg" alt="">
+        </div>
+        <div class="drop-zone" id="both" onclick="dropPhrase('both')">
+          <h3>Both</h3>
+        </div>
+        <div class="drop-zone" id="iphone" onclick="dropPhrase('iphone')">
+          <h3>iPhone</h3>
+          <img src="iPhone.jpg" alt="">
+        </div>
+    </div>
+<div class="buttons">
+    <button onclick="nextPhrase()">Next Phrase</button>
+    <button onclick="submitSorting()">Submit</button>
+</div>
+    <script src="script.js"></script>
+</body>
+</html>

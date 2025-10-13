@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vocab-Man: The Vocabulary Pac-Man Game</title>
+<link rel="stylesheet" href="style.css" type="text/css" media="all" />
+</head>
+<body>
+    <header>
+        <h1>Vocab-Man</h1>
+    </header>
+
+    <div class="controls">
+        <div class="score-display">Score: <span id="score">0</span></div>
+        <div class="timer-display">Time: <span id="timer">60</span>s</div>
+    </div>
+
+    <div class="sentence-display" id="sentence-display">
+        Collect the correct synonym for the highlighted word in the sentence!
+    </div>
+
+    <div class="game-container">
+        <canvas id="gameCanvas"></canvas>
+    </div>
+
+    <div class="mobile-controls">
+        <button class="mobile-btn" id="up-btn">↑</button>
+        <button class="mobile-btn" id="left-btn">←</button>
+        <button class="mobile-btn" id="right-btn">→</button>
+        <button class="mobile-btn" id="down-btn">↓</button>
+    </div>
+
+    <div class="modal" id="startModal">
+        <div class="modal-content">
+            <h2>Welcome to Vocab-Man!</h2>
+            <p>Help Pac-Man collect the correct synonyms while avoiding ghosts!</p>
+            <p>Use arrow keys or on-screen buttons to move.</p>
+            <p>Collect the word that correctly replaces the highlighted word in the sentence above.</p>
+            <button id="startBtn">Start Game</button>
+        </div>
+    </div>
+
+    <div class="modal" id="gameOverModal">
+        <div class="modal-content">
+            <h2>Game Over!</h2>
+            <p>Your final score: <span id="final-score">0</span></p>
+            <button id="restartBtn">Play Again</button>
+        </div>
+    </div>
+
+    <audio id="eatSound" src="https://assets.mixkit.co/sfx/preview/mixkit-arcade-game-jump-coin-216.mp3" preload="auto"></audio>
+    <audio id="ghostSound" src="https://assets.mixkit.co/sfx/preview/mixkit-retro-arcade-lose-2027.mp3" preload="auto"></audio>
+    <audio id="backgroundMusic" loop src="https://assets.mixkit.co/music/preview/mixkit-game-show-suspense-waiting-668.mp3" preload="auto"></audio>
+
+<script src="main.js"></script>
+</body>
+</html>

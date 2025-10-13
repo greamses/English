@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phoneme Sounds</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="heading">
+    <h1>Phoneme Sounds</h1>
+  </div>
+
+  <div class="body-bkg">
+
+  </div>
+  <main>
+
+    <div class="filter-container" id="filterContainer">
+      <div>
+
+        <button class="filter-btn active" data-category="all">All</button>
+        <button class="filter-btn" data-type="vowel">Vowels</button>
+        <button class="filter-btn" data-type="consonant">Consonants</button>
+
+      </div>
+      <div>
+        <button class="filter-btn" data-category="monophthong">Monophthongs</button>
+        <button class="filter-btn" data-category="diphthong">Diphthongs</button>
+        <button class="filter-btn" data-category="voiced">Voiced</button>
+        <button class="filter-btn" data-category="voiceless">Voiceless </button>
+      </div>
+
+    </div>
+
+    <div class="phoneme-container" id="phonemeContainer">
+      <!-- Phonemes will be dynamically added here -->
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

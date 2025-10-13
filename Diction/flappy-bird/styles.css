@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+  padding-bottom: 100px;
+}
+
+.game-container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  height: 100vh;
+  max-height: 600px;
+}
+
+#gameCanvas {
+  border: 8px solid #FFA500;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(255, 165, 0, 0.5);
+  width: 100%;
+  height: auto;
+}
+
+#score {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 24px;
+  color: #FFA500;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 10px 20px;
+  border-radius: 25px;
+  box-shadow: 0 4px 0 #FFA500, 0 8px 0 rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+#mathContent {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+}
+
+#mathProblem {
+  font-size: 28px;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 15px 30px;
+  border-radius: 50px;
+  box-shadow: 0 6px 0 #FFA500, 0 12px 0 rgba(0, 0, 0, 0.1);
+  color: #FF6347;
+  margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+#choices {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  width: 100%;
+  max-width: 400px;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.choice {
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  padding: 15px 20px;
+  cursor: pointer;
+  background-color: #FF6347;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 0 #CD5C5C, 0 12px 0 rgba(0, 0, 0, 0.1);
+  flex: 1;
+  min-width: 60px;
+  max-width: 120px;
+}
+
+.choice:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 9px 0 #CD5C5C, 0 18px 0 rgba(0, 0, 0, 0.1);
+}
+
+.choice:active {
+  transform: translateY(3px);
+  box-shadow: 0 3px 0 #CD5C5C, 0 6px 0 rgba(0, 0, 0, 0.1);
+}
+
+#gameOver {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 0 #FFA500, 0 20px 0 rgba(0, 0, 0, 0.1);
+  display: none;
+  border: 5px solid #FF6347;
+  z-index: 20;
+  width: 300px;
+}
+
+#gameOver h2 {
+  font-size: 48px;
+  color: #FF6347;
+  margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+#finalScore {
+  font-size: 36px;
+  color: #4CAF50;
+  margin-bottom: 30px;
+  font-family: 'Poppins', sans-serif;
+}
+
+#restartButton {
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  padding: 15px 30px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 0 #45a049, 0 12px 0 rgba(0, 0, 0, 0.1);
+}
+
+#restartButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 9px 0 #45a049, 0 18px 0 rgba(0, 0, 0, 0.1);
+}
+
+#restartButton:active {
+  transform: translateY(3px);
+  box-shadow: 0 3px 0 #45a049, 0 6px 0 rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 600px) {
+  #mathProblem {
+    font-size: 24px;
+    padding: 10px 20px;
+  }
+
+  #choices {
+    gap: 10px;
+  }
+
+  .choice {
+    font-size: 18px;
+    padding: 10px 15px;
+    min-width: 50px;
+    max-width: 100px;
+  }
+
+  #score {
+    font-size: 18px;
+    padding: 8px 15px;
+  }
+
+  #gameOver {
+    padding: 30px;
+  }
+
+  #gameOver h2 {
+    font-size: 36px;
+  }
+
+  #finalScore {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  #restartButton {
+    font-size: 18px;
+    padding: 10px 20px;
+  }
+}
+
+span{
+  color: #9449ED;
+}
+
+.top{
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  color: #fff;
+}

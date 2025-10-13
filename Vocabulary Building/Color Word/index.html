@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Color Concentration Game</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-wrapper">
+        <p class="instructions">Say the COLOR, not the word!</p>
+        <div id="score">Score: 0</div>
+        <div id="timer">Time: 60s</div>
+        <div id="game-container"></div>
+        <div id="controls">
+  
+            <button id="start-btn" class="btn">Start Game</button>
+            <button id="sound-toggle" class="btn">Sound: ON</button>
+            <button id="voice-toggle" class="btn">Voice: ON</button>
+        </div>
+
+    </div>
+
+    <audio id="correct-sound" src="https://www.soundjay.com/button/sounds/button-09.mp3"></audio>
+    <audio id="wrong-sound" src="https://www.soundjay.com/button/sounds/button-10.mp3"></audio>
+    <audio id="game-over-sound" src="https://www.soundjay.com/button/sounds/button-12.mp3"></audio>
+
+    <script src="main.js">
+        
+    </script>
+</body>
+</html>

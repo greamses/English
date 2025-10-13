@@ -1,0 +1,45 @@
+/* Import Poppins Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+body {
+      background: url('/Diction/index.jpg');
+      background-position: center;
+      background-size: cover;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+    .button-container {
+      display: flex;
+      gap: 35px;
+      flex-direction: column;
+    }
+    .button-container a {
+      text-decoration: none;
+    }
+button {
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  padding: 15px 30px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 0 #45a049, 0 12px 0 rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 9px 0 #45a049, 0 18px 0 rgba(0, 0, 0, 0.1);
+}
+
+button:active {
+  transform: translateY(3px);
+  box-shadow: 0 3px 0 #45a049, 0 6px 0 rgba(0, 0, 0, 0.1);
+}
