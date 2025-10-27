@@ -1,9 +1,9 @@
-import updateDOM from '/main.js';
+import updateDOM from '../main.js';
 
 const updatedVocabularyData = [
   {
     "word": "laugh",
-    "image": "/Verbs/images/laugh.jpg",
+    "image": "./images/laugh.jpg",
     "synonyms": {
       "basic": [
         {
@@ -231,7 +231,7 @@ const updatedVocabularyData = [
 },
   {
     word: "run",
-    image: "/Verbs/images/run.jpg",
+    image: "./images/run.jpg",
     synonyms: {
       basic: [
         { word: "jog", points: 15, meaning: "Move at a steady, gentle pace.", sentence: "She jogs around the park every morning." },
@@ -274,7 +274,7 @@ const updatedVocabularyData = [
 },
   {
     word: 'look',
-    image: '/Verbs/images/look.jpg',
+    image: './images/look.jpg',
     synonyms: {
       basic: [
         { word: 'see', points: 2, meaning: 'To perceive with the eyes.', sentence: 'She could see the mountains in the distance.' },
@@ -328,7 +328,7 @@ const updatedVocabularyData = [
 },
   {
     word: 'eat',
-    image: '/Verbs/images/eat.jpg',
+    image: './images/eat.jpg',
     synonyms: {
       basic: [
         {
@@ -568,7 +568,7 @@ const updatedVocabularyData = [
 },
   {
     word: 'walk',
-    image: '/Verbs/images/walk.jpg',
+    image: './images/walk.jpg',
     synonyms: {
       basic: [
         {
@@ -784,7 +784,7 @@ const updatedVocabularyData = [
 },
   {
     word: 'talk',
-    image: '/Verbs/images/talk.jpg',
+    image: './images/talk.jpg',
     synonyms: {
       basic: [
         { word: 'speak', points: 5, meaning: 'To use words to express thoughts', sentence: 'She spoke in a calm and steady voice.' },
@@ -858,3 +858,5 @@ function shuffleArray(array) {
 const vocabularyData = shuffleArray([...updatedVocabularyData]);
 
 updateDOM(vocabularyData)
+
+console.log('yes')
