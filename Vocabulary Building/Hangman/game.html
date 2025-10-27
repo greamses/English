@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +9,32 @@
     <script src="scripts/word-list.js" defer></script>
     <script src="scripts/script.js" defer></script>
 </head>
+
 <body>
+    <!-- Intro Modal -->
+    <div class="intro-modal show">
+        <div class="content">
+            <h1> Math Vocabulary Hangman </h1>
+            <div class="intro-content">
+                <h3>Test Your Math Knowledge!</h3>
+                <p>Guess the math terms from easy to advanced levels:</p>
+                <ul>
+                    <li> <strong>Easy:</strong> Grades 1-6 (8 guesses, 90 seconds)</li>
+                    <li> <strong>Medium:</strong> Grades 7-9 (6 guesses, 75 seconds)</li>
+                    <li> <strong>Hard:</strong> Grades 10-12 (5 guesses, 60 seconds)</li>
+                </ul>
+                <p>Complete 5 questions to advance to the next level!</p>
+                <div class="features">
+                    <p> Special keys for math terms: SPACE, DASH, APOSTROPHE</p>
+                    <p> Race against the timer!</p>
+                    <p> Progress through difficulty levels!</p>
+                </div>
+            </div>
+            <button class="start-btn">Start Game</button>
+        </div>
+    </div>
+    
+    <!-- Game Over Modal -->
     <div class="game-modal">
         <div class="content">
             <img src="#" alt="gif">
@@ -17,6 +43,8 @@
             <button class="play-again">Play Again</button>
         </div>
     </div>
+    
+    <!-- Main Game Container -->
     <div class="container">
         <div class="hangman-box">
             <img src="#" draggable="false" alt="hangman-img">
@@ -25,18 +53,22 @@
         <div class="game-box">
             <ul class="word-display"></ul>
             <h4 class="hint-text">Hint: <b></b></h4>
-            <h4 class="guesses-text">Incorrect guesses: <b></b></h4>
+            <h4 class="difficulty-text">Difficulty: <b>Easy</b></h4>
+            <h4 class="guesses-text">Incorrect guesses: <b>0 / 6</b></h4>
             <h4 class="questions-text">Question: <b>1</b></h4>
             <h4 class="timer-text">Time: <b>60</b>s</h4>
             <div class="keyboard"></div>
         </div>
         <button class="refresh-btn">Refresh</button>
     </div>
+    
+    <!-- Level Complete Modal -->
     <div class="level-complete-modal">
-    <div class="content">
-        <div class="level-message"></div>
-        <button class="next-level-btn">Start Next Level</button>
+        <div class="content">
+            <div class="level-message"></div>
+            <button class="next-level-btn">Start Next Level</button>
+        </div>
     </div>
-</div>
 </body>
+
 </html>

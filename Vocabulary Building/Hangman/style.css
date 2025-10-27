@@ -10,298 +10,536 @@
 
 body {
     display: flex;
-    padding: 10px 10px;
+    padding: 20px;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: #FFE0E5; /* Salmon */
+    background: #f8f9fa;
 }
 
 .container {
     display: flex;
-    width: 850px;
-    gap: 35px;
-    padding: 30px 20px;
-    background: #FFFFFF;
-    border-radius: 10px;
-    align-items: flex-end;
+    width: 100%;
+    max-width: 900px;
+    gap: 30px;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 12px;
+    align-items: flex-start;
     justify-content: space-between;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    border: 2px solid #FFCAD4;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border: 1px solid #e9ecef;
+}
+
+.hangman-box {
+    text-align: center;
+    flex-shrink: 0;
 }
 
 .hangman-box img {
     user-select: none;
-    max-width: 270px;
+    max-width: 200px;
+    height: auto;
 }
 
 .hangman-box h1 {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     text-align: center;
-    margin: 10px;
+    margin: 15px 0;
     text-transform: uppercase;
-    color: #4C0254; /* Black */
+    color: #2d3748;
+    font-weight: 700;
+}
+
+.game-box {
+    flex: 1;
+    min-width: 0;
 }
 
 .game-box .word-display {
-    gap: 5px;
+    gap: 8px;
     list-style: none;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    margin: 25px 0;
 }
 
 .word-display .letter {
-    width: 20px;
-    font-size: 1.4rem;
+    width: 28px;
+    height: 40px;
+    font-size: 1.5rem;
     text-align: center;
     font-weight: 600;
-    margin-block: 10px;
     text-transform: uppercase;
-    color: #4C0254; /* Black */
-    border-bottom: 3px solid #000000;
+    color: #2d3748;
+    border-bottom: 3px solid #2d3748;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
 }
 
 .word-display .letter.guessed {
-    margin: -10px 0 15px;
     border-color: transparent;
+    color: #4f46e5;
+}
+
+/* Special character styles for word display */
+.word-display .letter.space {
+    width: 25px;
+    border-bottom: none;
+    margin: 0 8px;
+}
+
+.word-display .letter.dash {
+    border-bottom: 3px solid #2d3748;
+    width: 25px;
+}
+
+.word-display .letter.apostrophe {
+    font-style: italic;
 }
 
 .game-box h4 {
     text-align: center;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 500;
-    margin-bottom: 5px;
-    color: #4C0254; /* Black */
-    margin: 10px 0;
+    margin: 12px 0;
+    color: #4a5568;
 }
 
 .game-box h4 b {
     font-weight: 600;
+    color: #2d3748;
+}
+
+.game-box .difficulty-text b {
+    color: #4f46e5;
 }
 
 .game-box .guesses-text b {
-    color: #4C0254; /* Black */
+    color: #dc2626;
 }
 
 .game-box .keyboard {
     display: flex;
-    gap: 5px;
+    gap: 6px;
     flex-wrap: wrap;
     justify-content: center;
-}
-
-:where(.game-modal, .keyboard) button {
-    color: #FFFFFF; /* White */
-    border: none;
-    outline: none;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: 600;
-    border-radius: 4px;
-    text-transform: uppercase;
-    background: #BA55D3; /* Medium Orchid */
+    margin: 25px 0 15px 0;
 }
 
 .keyboard button {
-    padding: 5px;
-    width: calc(100% / 9 - 5px);
-}
-
-.keyboard button[disabled] {
-    pointer-events: none;
-    opacity: 0.6;
-}
-
-:where(.game-modal, .keyboard) button:hover {
-    background: #9370DB; /* Medium Purple */
-}
-
-.game-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    pointer-events: none;
-    background: rgba(0,0,0,0.6);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    padding: 0 10px;
-    transition: opacity 0.4s ease;
-}
-
-.game-modal.show {
-    opacity: 1;
-    pointer-events: auto;
-    transition: opacity 0.4s 0.4s ease;
-}
-
-.game-modal .content {
-    padding: 5px;
-    max-width: 420px;
-    width: 100%;
-    border-radius: 10px;
-    background: #FFFFFF;
-    text-align: center;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-}
-
-.game-modal img {
-    max-width: 130px;
-    margin-bottom: 5px;
-}
-
-.game-modal img[src="images/victory.gif"] {
-    margin-left: -5px;
-}
-
-.game-modal h4 {
-    font-size: 1.23rem;
-    color: #71057D; /* Black */
-}
-
-.game-modal p {
-    font-size: 1.05rem;
-    margin: 10px 0 10px;
-    font-weight: 500;
-    color: #4C0254; /* Black */
-}
-
-.game-modal p b {
-    color: #4C0254; /* Black */
-    font-weight: 600;
-}
-
-.game-modal button {
-    padding: 12px 13px;
-    background: #8A2BE2; /* Blue Violet */
-    border-radius: 5px;
-}
-
-.game-modal button:hover {
-    background: #7B68EE; /* Medium Slate Blue */
-}
-
-.level-complete-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 999;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.4s ease;
-}
-
-.level-complete-modal.show {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-.level-complete-modal .content {
-    background: #fff;
-    max-width: 420px;
-    width: 100%;
-    text-align: center;
-    border-radius: 10px;
-    padding: 30px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-.level-complete-modal h3 {
-    color: #6C63FF;
-    margin-bottom: 15px;
-}
-
-.level-complete-modal p {
-    margin: 10px 0;
-    font-size: 1.1em;
-}
-
-.next-level-btn {
-    background: #6C63FF;
-    color: white;
-    border: none;
-    padding: 12px 30px;
+    padding: 10px 8px;
+    border: 1px solid #d1d5db;
+    background: #ffffff;
+    color: #2d3748;
     border-radius: 6px;
-    font-size: 1.1em;
     cursor: pointer;
-    margin-top: 20px;
-    transition: background 0.3s ease;
+    font-size: 0.9rem;
+    font-weight: 600;
+    min-width: 38px;
+    height: 42px;
+    transition: all 0.2s ease;
 }
 
-.next-level-btn:hover {
-    background: #5752d4;
+.keyboard button:hover:not(:disabled) {
+    background: #4f46e5;
+    color: white;
+    border-color: #4f46e5;
+    transform: translateY(-1px);
 }
 
-@media (max-width: 782px) {
-    .container {
-        flex-direction: column;
-        padding: 30px 15px;
-        align-items: center;
-    }
+.keyboard button:disabled {
+    background: #f3f4f6;
+    color: #9ca3af;
+    border-color: #e5e7eb;
+    cursor: not-allowed;
+    transform: none;
+}
 
-    .hangman-box img {
-        max-width: 200px;
-    }
+/* Special key styles */
+.keyboard .space-key {
+    min-width: 100px;
+    background: #10b981;
+    color: white;
+    border-color: #10b981;
+}
 
-    .hangman-box h1 {
-        display: none;
-    }
+.keyboard .dash-key {
+    background: #f59e0b;
+    color: white;
+    border-color: #f59e0b;
+}
 
-    .game-box h4 {
-        font-size: 1rem;
-    }
+.keyboard .apostrophe-key {
+    background: #8b5cf6;
+    color: white;
+    border-color: #8b5cf6;
+}
 
-    .word-display .letter {
-        margin-bottom: 10px;
-        font-size: 1.2rem;
-    }
+.keyboard .space-key:hover:not(:disabled) {
+    background: #059669;
+    border-color: #059669;
+}
 
-    .word-display .letter.guessed {
-        margin: -15px 0 10px;
-    }
+.keyboard .dash-key:hover:not(:disabled) {
+    background: #d97706;
+    border-color: #d97706;
+}
 
-    .game-modal img {
-        max-width: 120px;
-    }
-
-    .game-modal h4 {
-        font-size: 1.25rem;
-    }
-
-    .game-modal p {
-        font-size: 1.1rem;
-    }
-
-    .game-modal button {
-        padding: 10px 18px;
-    }
+.keyboard .apostrophe-key:hover:not(:disabled) {
+    background: #7c3aed;
+    border-color: #7c3aed;
 }
 
 /* Refresh button styling */
 .refresh-btn {
-    padding: 10px 10px;
-    background-color: #FF2A95; /* Hot Pink */
-    color: #FFFFFF; /* White */
+    padding: 12px 24px;
+    background-color: #4f46e5;
+    color: #ffffff;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
     cursor: pointer;
     font-size: 1rem;
     font-weight: 600;
     text-transform: uppercase;
+    transition: all 0.2s ease;
+    width: 100%;
+    margin-top: 15px;
 }
 
 .refresh-btn:hover {
-    background-color: #FF1493; /* Deep Pink */
+    background-color: #4338ca;
+    transform: translateY(-1px);
+}
+
+/* Modal Styles */
+.game-modal,
+.level-complete-modal,
+.intro-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+    transition: opacity 0.3s ease;
+}
+
+.game-modal.show,
+.level-complete-modal.show,
+.intro-modal.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.game-modal .content,
+.level-complete-modal .content,
+.intro-modal .content {
+    background: #ffffff;
+    max-width: 400px;
+    width: 100%;
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.game-modal img {
+    max-width: 120px;
+    margin-bottom: 15px;
+}
+
+.game-modal h4 {
+    font-size: 1.5rem;
+    color: #2d3748;
+    margin-bottom: 10px;
+}
+
+.game-modal p {
+    font-size: 1.1rem;
+    margin: 15px 0 20px;
+    font-weight: 500;
+    color: #4a5568;
+}
+
+.game-modal p b {
+    color: #2d3748;
+    font-weight: 600;
+}
+
+.game-modal button,
+.level-complete-modal button,
+.intro-modal button {
+    padding: 12px 30px;
+    background: #4f46e5;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 100%;
+    max-width: 200px;
+}
+
+.game-modal button:hover,
+.level-complete-modal button:hover,
+.intro-modal button:hover {
+    background: #4338ca;
+    transform: translateY(-1px);
+}
+
+/* Intro Modal Specific Styles */
+.intro-modal .content {
+    max-width: 500px;
+    padding: 40px 30px;
+}
+
+.intro-modal h1 {
+    color: #2d3748;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.intro-content {
+    text-align: left;
+    margin: 25px 0;
+}
+
+.intro-content h3 {
+    color: #4f46e5;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.intro-content p {
+    margin: 12px 0;
+    font-size: 1rem;
+    color: #4a5568;
+    line-height: 1.5;
+}
+
+.intro-content ul {
+    margin: 20px 0;
+    padding-left: 20px;
+}
+
+.intro-content li {
+    margin: 10px 0;
+    font-size: 0.95rem;
+    color: #4a5568;
+    line-height: 1.4;
+}
+
+.features {
+    background: #f8fafc;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+    border-left: 4px solid #4f46e5;
+}
+
+.features p {
+    margin: 8px 0;
+    font-size: 0.9rem;
+    color: #4a5568;
+}
+
+.start-btn {
+    background: #4f46e5;
+    color: white;
+    border: none;
+    padding: 14px 40px;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.2s ease;
+}
+
+.start-btn:hover {
+    background: #4338ca;
+    transform: translateY(-1px);
+}
+
+/* Level Complete Modal */
+.level-complete-modal h3 {
+    color: #4f46e5;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+.level-complete-modal p {
+    margin: 10px 0;
+    font-size: 1rem;
+    color: #4a5568;
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+        align-items: flex-start;
+        min-height: 100vh;
+        height: auto;
+    }
+
+    .container {
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+        align-items: center;
+        max-width: 100%;
+    }
+
+    .hangman-box {
+        width: 100%;
+    }
+
+    .hangman-box img {
+        max-width: 150px;
+    }
+
+    .hangman-box h1 {
+        font-size: 1.3rem;
+        margin: 10px 0;
+    }
+
+    .game-box {
+        width: 100%;
+    }
+
+    .word-display .letter {
+        width: 24px;
+        height: 35px;
+        font-size: 1.3rem;
+    }
+
+    .keyboard {
+        gap: 4px;
+    }
+
+    .keyboard button {
+        padding: 8px 6px;
+        font-size: 0.85rem;
+        min-width: 34px;
+        height: 38px;
+    }
+
+    .keyboard .space-key {
+        min-width: 80px;
+    }
+
+    .game-box h4 {
+        font-size: 0.9rem;
+        margin: 8px 0;
+    }
+
+    .refresh-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    /* Modal mobile styles */
+    .game-modal .content,
+    .level-complete-modal .content,
+    .intro-modal .content {
+        padding: 25px 20px;
+        margin: 10px;
+    }
+
+    .intro-modal .content {
+        padding: 30px 20px;
+    }
+
+    .intro-modal h1 {
+        font-size: 1.6rem;
+    }
+
+    .intro-content {
+        margin: 20px 0;
+    }
+
+    .intro-content h3 {
+        font-size: 1.2rem;
+    }
+
+    .intro-content p,
+    .intro-content li {
+        font-size: 0.9rem;
+    }
+
+    .features {
+        padding: 15px;
+    }
+
+    .start-btn {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 5px;
+    }
+
+    .hangman-box img {
+        max-width: 120px;
+    }
+
+    .word-display .letter {
+        width: 20px;
+        height: 30px;
+        font-size: 1.1rem;
+    }
+
+    .keyboard button {
+        padding: 6px 4px;
+        font-size: 0.8rem;
+        min-width: 30px;
+        height: 34px;
+    }
+
+    .keyboard .space-key {
+        min-width: 70px;
+    }
+
+    .game-modal .content,
+    .level-complete-modal .content,
+    .intro-modal .content {
+        padding: 20px 15px;
+    }
+
+    .intro-modal h1 {
+        font-size: 1.4rem;
+    }
+}
+
+/* Ensure no horizontal overflow */
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+.container {
+    overflow: hidden;
 }
